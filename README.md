@@ -52,4 +52,4 @@ First, open the repo in VSCode, as a whole.
 
 Try opening `hello.js` and `hello.ts`. Prettier, TypeScript, cmd-clicking into dependencies etc. should work.
 
-Then try inspecting some source files in subprojects, e.g., `docs/index.js` or `packages/app/pages/index.tsx`. That should be more problematic already, for example, VSCode will complain that it doesn't know where to find the `'react'` module.
+Then try inspecting some source files in subprojects, e.g., `docs/index.ts` or `packages/app/pages/index.tsx`. That should be more challenging. _(TODO add conclusions; right now, I'm in the middle of experimenting.)_
