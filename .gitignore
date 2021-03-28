@@ -9,5 +9,8 @@ node_modules
 !**/.yarn/versions
 **/.pnp.*
 
+# Next.js
+.next
+
 # Other
 yarn-error.log

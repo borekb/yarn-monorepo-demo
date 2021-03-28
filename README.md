@@ -21,3 +21,8 @@
 - Is a root of Yarn workspaces
     - ❗️ Many repos on GitHub use repo root as a workspaces root. This repo is different: workspaces are defined in `packages/package.json` and e.g. if node_modules were hoisted, they would be hoisted to `packages/node_modules`, not `<repo-root>/node_modules`.
 - Uses PnP
+
+### `packages/app`
+
+- A basic Next.js app
+- Uses TypeScript, e.g., `pages/index.tsx` instead of `.jsx`
