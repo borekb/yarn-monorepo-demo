@@ -2,27 +2,54 @@
 
 🚧 _This demo is being built_ 🚧
 
-## Repo root
+## What this shows
 
-- Uses PnP
-- Contains only `devDependencies`, two to be specific:
-    - TypeScript
-    - Prettier
-- Contains VSCode SDKs (`yarn pnpify --sdk vscode`)
-- Contains [`hello.js`](hello.js) script demonstrating that both TypeScript and Prettier work
+This repo is a simplified example of our company's monorepo that houses several projects, some relatively unrelated. We use the repo root for devDependencies only, all "real projects" are in subfolders, some using Yarn 1, some Yarn 2 + PnP, some Yarn 2 + node_modules, some are not JS projects at all.
 
-## `docs`
+## Repo structure
 
-- Is the most "isolated" project in the repo – wants to use root-level devDependencies (Prettier, TypeScript), that's all
-- Uses Yarn 1 (1.22.10) via its [`.yarnrc.yml`](docs/.yarnrc.yml)
+```
+. (<repo-root>) 1️⃣
+├── docs        2️⃣
+└── packages    3️⃣
+    └── app     4️⃣
+```
 
-## `packages`
+### 1️⃣ `<repo-root>`
 
-- Is a root of Yarn workspaces
-    - ❗️ Many repos on GitHub use repo root as a workspaces root. This repo is different: workspaces are defined in `packages/package.json` and e.g. if node_modules were hoisted, they would be hoisted to `packages/node_modules`, not `<repo-root>/node_modules`.
-- Uses PnP
+- Contains two core `devDependencies`, TypeScript and Prettier.
+- Uses PnP to avoid root-level `node_modules`.
+- Uses pnpified VSCode SDKs (`yarn pnpify --sdk vscode`).
+- Contains two test files, [`hello.js`](hello.js) and [`hello.ts`](hello.ts), to play with TS and Prettier.
 
-### `packages/app`
+### 2️⃣ `docs`
 
-- A basic Next.js app
-- Uses TypeScript, e.g., `pages/index.tsx` instead of `.jsx`
+- Showcases an "isolated" project (no relation to `packages`).
+- Uses Yarn 1 + node_modules.
+
+### 3️⃣ `packages`
+
+- Root of Yarn workspaces (`"workspaces": [...]` is defined here, _not_ in `<repo-root>/package.json`).
+- Uses Yarn 2.4 and PnP.
+
+### 4️⃣ `packages/app`
+
+- Basic Next.js app
+- TypeScript setup, e.g., `pages/index.tsx` instead of `.jsx`.
+
+---
+
+_To be added:_
+
+- [ ] Add `packages/lib` (another Yarn workspace under `packages`), use it from `app`.
+- [ ] Add `examples/basic` – a Next.js app that uses `portal:` to link to `packages/lib`.
+
+---
+
+## What to try
+
+First, open the repo in VSCode, as a whole.
+
+Try opening `hello.js` and `hello.ts`. Prettier, TypeScript, cmd-clicking into dependencies etc. should work.
+
+Then try inspecting some source files in subprojects, e.g., `docs/index.js` or `packages/app/pages/index.tsx`. That should be more problematic already, for example, VSCode will complain that it doesn't know where to find the `'react'` module.

@@ -1,5 +1,3 @@
-// @ts-check
-
 // Try cmd-clicking on 'lodash.snakecase'
 import snakecase from 'lodash.snakecase';
 snakecase;

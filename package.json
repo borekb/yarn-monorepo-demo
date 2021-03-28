@@ -2,7 +2,9 @@
   "name": "yarn-monorepo-demo",
   "private": true,
   "devDependencies": {
+    "@types/lodash.snakecase": "^4.1.6",
     "@yarnpkg/pnpify": "^2.4.0",
+    "lodash.snakecase": "^4.1.1",
     "prettier": "^2.2.1",
     "typescript": "4.2.x"
   }
