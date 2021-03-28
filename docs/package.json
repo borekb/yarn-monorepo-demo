@@ -1,0 +1,15 @@
+{
+  "name": "docs",
+  "private": true,
+  "scripts": {
+    "start": "node -r ts-node/register index.ts"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.3"
+  }
+}
