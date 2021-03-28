@@ -1,4 +1,9 @@
 {
   "name": "yarn-monorepo-demo",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@yarnpkg/pnpify": "^2.4.0",
+    "prettier": "^2.2.1",
+    "typescript": "4.2.x"
+  }
 }
