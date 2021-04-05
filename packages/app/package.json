@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@demo/lib-ui": "workspace:*",
     "@demo/lib-utils": "workspace:*",
     "next": "^10.0.9",
     "next-transpile-modules": "^6.4.0",

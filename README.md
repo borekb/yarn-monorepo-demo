@@ -21,7 +21,8 @@ This setup is relatively tricky to support, for example, VSCode's TypeScript SDK
 ├── docs          2️⃣
 └── packages      3️⃣
     ├── app       4️⃣
-    └── lib-utils 5️⃣
+    ├── lib-utils 5️⃣
+    └── lib-ui    6️⃣
 ```
 
 ### 1️⃣ `<repo-root>`
@@ -52,6 +53,12 @@ This setup is relatively tricky to support, for example, VSCode's TypeScript SDK
 
 - Library with simple utility functions, see e.g. [`strings.ts`](packages/lib-utils/strings.ts).
 - Written in TypeScript.
+- No build step – consumed via [next-transpile-modules](https://github.com/martpie/next-transpile-modules).
+
+### 6️⃣ `packages/lib-ui`
+
+- UI library with [`Image.tsx`](packages/lib-ui/Image.tsx).
+- Uses `next/image` internally which means that the [`package.json`](packages/lib-ui/package.json) needs to list `next` as both a peerDependency and a devDependency.
 - No build step – consumed via [next-transpile-modules](https://github.com/martpie/next-transpile-modules).
 
 ## How to try

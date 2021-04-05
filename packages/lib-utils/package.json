@@ -2,7 +2,6 @@
   "name": "@demo/lib-utils",
   "private": true,
   "main": "index.js",
-  "type": "module",
   "dependencies": {
     "lodash.snakecase": "^4.1.1"
   },
