@@ -20,7 +20,8 @@ This setup is relatively tricky to support, for example, VSCode's TypeScript SDK
 . (<repo-root>) 1️⃣
 ├── docs        2️⃣
 └── packages    3️⃣
-    └── app     4️⃣
+    ├── app     4️⃣
+    └── lib     5️⃣
 ```
 
 ### 1️⃣ `<repo-root>`
@@ -43,14 +44,20 @@ This setup is relatively tricky to support, for example, VSCode's TypeScript SDK
 
 ### 4️⃣ `packages/app`
 
-- Basic Next.js app
-- TypeScript setup, e.g., `pages/index.tsx` instead of `.jsx`.
+- Is a basic Next.js app.
+- Uses TypeScript, e.g., `pages/index.tsx` instead of `.jsx`.
+- Consumes things from `lib`.
+
+### 5️⃣ `packages/lib`
+
+- Written in TypeScript.
+- No build step – the app uses [next-transpile-modules](https://github.com/martpie/next-transpile-modules).
+- Contains `utils.ts` that exports a `snakeCase` function – uses `lodash.snakecase` as a dependency.
 
 ---
 
 _To be added:_
 
-- [ ] Add `packages/lib` (another Yarn workspace under `packages`), use it from `app`.
 - [ ] Add `examples/basic` – a Next.js app that uses `portal:` to link to `packages/lib`.
 - [ ] Verify more tools, e.g., ESLint.
 
