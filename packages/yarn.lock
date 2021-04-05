@@ -56,12 +56,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@demo/app@workspace:app"
   dependencies:
+    "@demo/lib-utils": "workspace:*"
     "@types/node": ^14.14.37
     "@types/react": ^17.0.3
     next: ^10.0.9
+    next-transpile-modules: ^6.4.0
     react: ^17.0.2
     react-dom: ^17.0.2
     typescript: ^4.2.3
+  languageName: unknown
+  linkType: soft
+
+"@demo/lib-utils@workspace:*, @demo/lib-utils@workspace:lib-utils":
+  version: 0.0.0-use.local
+  resolution: "@demo/lib-utils@workspace:lib-utils"
+  dependencies:
+    "@types/lodash.snakecase": ^4.1.6
+    lodash.snakecase: ^4.1.1
   languageName: unknown
   linkType: soft
 
@@ -159,6 +170,22 @@ __metadata:
   version: 0.14.0
   resolution: "@opentelemetry/context-base@npm:0.14.0"
   checksum: f1e637a1912e5876a49fcdfefd76c5e37fd94852a444ad6a3e42fab2d136f0794d5f6455b01866c4342cec624541cb83cfadcc86f83ba2ececf9dc83117a982d
+  languageName: node
+  linkType: hard
+
+"@types/lodash.snakecase@npm:^4.1.6":
+  version: 4.1.6
+  resolution: "@types/lodash.snakecase@npm:4.1.6"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 2623670ea7500e438b7400f04269f77ccb9b8e6c1e9c5dea733b21b046379ee82ed738b6506cfeeb1f25a4c5fdd5cd79cccfa321212303e5710cd4af6b18a5a4
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.14.168
+  resolution: "@types/lodash@npm:4.14.168"
+  checksum: 9a4e25f89fc035b9f0388f1f7be85e5eff49f9e6db0d93432c9a89fce0916f8a89db4e8290415f7ea02de6b00d3573826378dcb655b7b2d20530a6e8d6dd6fd0
   languageName: node
   linkType: hard
 
@@ -953,6 +980,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"enhanced-resolve@npm:^5.7.0":
+  version: 5.7.0
+  resolution: "enhanced-resolve@npm:5.7.0"
+  dependencies:
+    graceful-fs: ^4.2.4
+    tapable: ^2.2.0
+  checksum: 545cfa659e9cdccf1240bccbbd1791db7ec589979d71b35df5aeaf872dd8d13fab379ad73fa960f4cb32963b85492792c0fb0866f484043740014824ae6088b9
+  languageName: node
+  linkType: hard
+
 "env-paths@npm:^2.2.0":
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
@@ -1187,7 +1224,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.2.3":
+"graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.2.3, graceful-fs@npm:^4.2.4":
   version: 4.2.6
   resolution: "graceful-fs@npm:4.2.6"
   checksum: 84d39c7756892553da990a9db7e45f844b3309b37b5a00174cbb4748476f2250c54f24594d4d252f64f085c65c2fdac7c809419bf6d55f0e6e42eb07ac0f5bf2
@@ -1534,6 +1571,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"lodash.snakecase@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.snakecase@npm:4.1.1"
+  checksum: 3b3d1457597b45952d7c4e7975dfe10203f667d2f78bfe0d604f818d462628ad9f100f0fe95328a55ccf96fab4465a1f22602ca20a0ac0ed8e7ecf8067a972e6
+  languageName: node
+  linkType: hard
+
 "lodash.sortby@npm:^4.7.0":
   version: 4.7.0
   resolution: "lodash.sortby@npm:4.7.0"
@@ -1703,6 +1747,16 @@ fsevents@~2.3.1:
   dependencies:
     querystring: ^0.2.0
   checksum: 26a3716a257db5d88d2678691175144d4732cb1b12d35925f939f837b7bb9d98ce18f1d7750409fb8988f190ad075b4b72310b0e212d61fd3d832e6d073ab89b
+  languageName: node
+  linkType: hard
+
+"next-transpile-modules@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "next-transpile-modules@npm:6.4.0"
+  dependencies:
+    enhanced-resolve: ^5.7.0
+    escalade: ^3.1.1
+  checksum: 0173c649d696f0de8b4225706efeff9bb38da9ea6fcfdbb4f5bdb6528072fbc5ff4d9252a8b3d3fb71f970fb00118f202c88c11fad02f953df5007f934b04604
   languageName: node
   linkType: hard
 
@@ -2649,6 +2703,13 @@ fsevents@~2.3.1:
   dependencies:
     has-flag: ^4.0.0
   checksum: 8e57067c39216f3c2ffce7cc14ca934d54746192571203aa9c9922d97d2d55cc1bdaa9e41a11f91e620670b5a74ebdec6b548a885d8cc2dea7cab59e21416029
+  languageName: node
+  linkType: hard
+
+"tapable@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "tapable@npm:2.2.0"
+  checksum: f8ed725aedb3d777bf908ff06c02d1a2108667d3e64af87dd45354ac8de67e7e4fe1a567e215057fb1a2a5437b31d80cc5e5ddbb8327f7280afd4494967a9a93
   languageName: node
   linkType: hard
 
