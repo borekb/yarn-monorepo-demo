@@ -1,0 +1,13 @@
+{
+  "name": "@demo/lib-ui",
+  "private": true,
+  "main": "index.js",
+  "peerDependencies": {
+    "next": "^10.0.9"
+  },
+  "devDependencies": {
+    "next": "^10.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

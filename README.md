@@ -17,10 +17,12 @@ This setup is relatively tricky to support, for example, VSCode's TypeScript SDK
 ## Repo structure
 
 ```
-. (<repo-root>) 1️⃣
-├── docs        2️⃣
-└── packages    3️⃣
-    └── app     4️⃣
+. (<repo-root>)   1️⃣
+├── docs          2️⃣
+└── packages      3️⃣
+    ├── app       4️⃣
+    ├── lib-utils 5️⃣
+    └── lib-ui    6️⃣
 ```
 
 ### 1️⃣ `<repo-root>`
@@ -43,18 +45,21 @@ This setup is relatively tricky to support, for example, VSCode's TypeScript SDK
 
 ### 4️⃣ `packages/app`
 
-- Basic Next.js app
-- TypeScript setup, e.g., `pages/index.tsx` instead of `.jsx`.
+- Is a basic Next.js app.
+- Uses TypeScript, e.g., `pages/index.tsx` instead of `.jsx`.
+- Consumes things from libs.
 
----
+### 5️⃣ `packages/lib-utils`
 
-_To be added:_
+- Library with simple utility functions, see e.g. [`strings.ts`](packages/lib-utils/strings.ts).
+- Written in TypeScript.
+- No build step – consumed via [next-transpile-modules](https://github.com/martpie/next-transpile-modules).
 
-- [ ] Add `packages/lib` (another Yarn workspace under `packages`), use it from `app`.
-- [ ] Add `examples/basic` – a Next.js app that uses `portal:` to link to `packages/lib`.
-- [ ] Verify more tools, e.g., ESLint.
+### 6️⃣ `packages/lib-ui`
 
----
+- UI library with [`Image.tsx`](packages/lib-ui/Image.tsx).
+- Uses `next/image` internally which means that the [`package.json`](packages/lib-ui/package.json) needs to list `next` as both a peerDependency and a devDependency.
+- No build step – consumed via [next-transpile-modules](https://github.com/martpie/next-transpile-modules).
 
 ## How to try
 
@@ -71,6 +76,7 @@ Now try opening JS / TS files in various locations, e.g.:
 
 And try if the VSCode experience is good:
 
-- Try cmd-clicking into dependencies
+- Try cmd-clicking into imports
 - Try formatting via Prettier
-- Try to create some error, like `parseInt(0)` (should be a string)
+- Try to create a TS error, like `parseInt(0)`
+- Try HMR / Fast Refresh in a running Next.js app – should work when updating both the app's source code as well as the code in one of the libs.
